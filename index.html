@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>API persons</title>
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="app" v-cloak>
+        <div id="carousel" @click="showInfo">
+            <div
+                v-for="(person, index) in persons"
+                :key="index"
+                class="person"
+                :data-person-id="person.id"
+            >
+                <img
+                    class="person__img"
+                    :src="`https://api.smotrim.ru/api/v1/pictures/${person.picId}/bq/redirect`"
+                    :alt="person.title"
+                    :title="person.title"
+                    :data-person-id="person.id"
+                >
+                <div class="person__name" :data-person-id="person.id">{{ person.name }}</div>
+                <div class="person__surname" :data-person-id="person.id">{{ person.surname }}</div>
+            </div>
+        </div>
+
+        <div class="person-info__wrap" v-if="isInfo" @click.self="closeInfo">
+            <div class="person-info">
+                <img
+                    class="person-info__close"
+                    src="img/close.svg"
+                    alt="close"
+                    title="close"
+                    @click="closeInfo"
+                >
+                <div class="person-info__header">
+                    <img :src="`https://api.smotrim.ru/api/v1/pictures/${currPerson.picId}/bq/redirect`" :alt="currPerson" :title="currPerson">
+                    <div>
+                        <div class="person-info__name">{{ currPerson.name }}</div>
+                        <div class="person-info__surname">{{ currPerson.surname }}</div>
+                    </div>
+                </div>
+                <div class="person-info__content" v-html="infoContent"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script src="app.js" type="module"></script>
+</body>
+</html>

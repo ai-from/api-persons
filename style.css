@@ -1,0 +1,156 @@
+:root {
+    --bg-gray: 217,217,217;
+}
+
+@font-face {
+    font-family: 'RF Dewi';
+    src: url('fonts/RFDewi-Semibold.woff2') format('woff2'),
+        url('fonts/RFDewi-Semibold.woff') format('woff'),
+        url('fonts/RFDewi-Semibold.ttf') format('truetype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+	font-family: 'Inter Regular';
+	src: url('fonts/inter_regular.woff2') format('woff2'),
+		url('fonts/inter_regular.woff') format('woff'),
+		url('fonts/inter_regular.ttf') format('truetype');
+}
+
+@font-face {
+	font-family: 'Inter Bold';
+	src: url('fonts/inter_bold.woff2') format('woff2'),
+		url('fonts/inter_bold.woff') format('woff'),
+		url('fonts/inter_bold.ttf') format('truetype');
+}
+
+[v-cloak] {
+    display: none;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 24px;
+}
+
+.person {
+    width: min-content;
+    cursor: pointer;
+}
+
+.person:hover .person__img {
+    box-shadow: 0 8px 8px 4px rgba(0, 0, 0, .5);
+}
+
+.person__img {
+    width: 144px;
+    height: 144px;
+    margin: 0 auto;
+    border-radius: 100%;
+    margin-bottom: 12px;
+}
+
+.person__name, .person__surname {
+    text-align: center;
+    font-family: 'RF Dewi', Arial, monospace;
+    font-size: 14px;
+}
+
+#carousel {
+    max-width: 1376px;
+    min-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.arrow-prev, .arrow-next {
+    width: 48px;
+    height: 48px;
+    background-color: #fff;
+    border-radius: 100%;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, .1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    z-index: 1;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-top: -20px;
+}
+
+.arrow-prev {
+    left: -20px;
+}
+
+.arrow-next {
+    right: -20px;
+}
+
+.arrow-prev img {
+    transform: scale(-1, -1);
+}
+
+.person-info__wrap {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background: rgba(var(--bg-gray), .7);
+    backdrop-filter: blur(10px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.person-info {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 30px;
+    width: 605px;
+    max-height: calc(100vh - 100px);
+    position: relative;
+    display: flex;
+    flex-direction:column;
+}
+
+.person-info__close {
+    cursor: pointer;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.person-info__header {
+    display: flex;
+    gap: 32px;
+    align-items: center;
+    margin-bottom: 40px;
+}
+
+.person-info__header img {
+    width: 200px;
+    height: 200px;
+    border-radius: 8px;
+}
+
+.person-info__name, .person-info__surname {
+    font-family: 'Inter Bold', Arial, monospace;
+    font-size: 40px;
+}
+
+.person-info__content {
+    overflow: auto;
+    max-height: 300px;
+    font-family: 'Inter Regular', Arial, monospace;
+    font-size: 16px;
+}
