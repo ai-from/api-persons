@@ -162,7 +162,7 @@ body {
     }
     .person-info__header {
         flex-direction: column;
-        align-items: left;
+        align-items: start;
         margin-bottom: 20px;
     }
     .person-info__name, .person-info__surname {
