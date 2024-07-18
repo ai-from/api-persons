@@ -116,7 +116,8 @@ body {
     background-color: #fff;
     border-radius: 16px;
     padding: 30px;
-    width: 605px;
+    width: 100%;
+    max-width: 605px;
     max-height: calc(100vh - 100px);
     position: relative;
     display: flex;
